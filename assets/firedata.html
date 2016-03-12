@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<script type="text/javascript">
+  	(function(win, name, u) {
+  	  var f = win['FiredataAPP'], d = typeof f !== u;
+      win[name] = {
+        support: d,
+      	getGUID: function(){if(d) return f.getGUID();},
+      	getUserId: function(){if(d) return f.getUserId();},
+      	event: function(cat, action, props){if(d)f.event(cat, action, JSON.stringify(props||{})); console.log(JSON.stringify(props))}
+      };
+      //example
+      //_fdapp.event('/登陆', '密码错误', {'username': 'abc'});
+    })(window, '_fdapp', 'undefined');
+  	</script>
+  </head>
+  <body>
+  <div>support: <span id="support"></span></div>
+  <div>guid: <span id="guid"></span></div>
+  <div>userId: <span id="userId"></span></div>
+  <div><button id="btn">记录事件</button></div>
+  <div></div>
+  <div><a href="http://firedata.cc/yemianbucunz.html">指向不存在的页面，记录页面加载失败</a></div>
+  
+  <script type="text/javascript">
+    document.getElementById("support").innerText = _fdapp.support;
+    document.getElementById("guid").innerText = _fdapp.getGUID();
+    document.getElementById("userId").innerText = _fdapp.getUserId();
+    document.getElementById("btn").onclick= function(){
+      _fdapp.event('/WEB页面', '页面事件', {'by': 'click'});
+    };
+  </script>
+  </body>
+</html>
