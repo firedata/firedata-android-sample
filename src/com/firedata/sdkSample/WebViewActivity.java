@@ -24,7 +24,7 @@ public class WebViewActivity extends Activity {
 
 		webview1 = (WebView) findViewById(R.id.myWebview);
 		// 绑定统计，在网页中也可以追踪事件啦
-		Firedata.bindWebview(webview1, Props.eventProps("from", "Android"));
+		Firedata.bindWebview(webview1, "/inWEB", Props.eventProps("from", "Android"));
 
 		webview1.getSettings().setJavaScriptEnabled(true);
 		webview1.setWebViewClient(new WebViewClient() {
