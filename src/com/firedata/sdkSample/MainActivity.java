@@ -16,7 +16,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		Firedata.init(this.getApplicationContext(), "UFANSCJ55O", null);//FDU7X5BEQS
+		Firedata.init(this.getApplicationContext(), "FDU7X5BEQS", null);//FDU7X5BEQS
 		Firedata.enableCrashReporting();
 		
 		//打开切换到后台的监控
