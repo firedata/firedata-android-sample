@@ -2,6 +2,7 @@ package com.firedata.sdkSample;
 
 import com.firedata.sdk.Firedata;
 import com.firedata.sdk.Props;
+import com.firedata.sdk.Tracker;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +16,8 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+ 
+		Tracker.getInstance().setCustomGUID("IamCustomGuid");
 		Firedata.init(this.getApplicationContext(), "FDU7X5BEQS", null);//FDU7X5BEQS
 		Firedata.enableCrashReporting();
 		
